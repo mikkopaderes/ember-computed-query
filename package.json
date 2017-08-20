@@ -1,17 +1,17 @@
 {
   "name": "ember-computed-query",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Computed properties for your models that's equivalent to your store's query methods",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Mikko Paderes",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/rmmmp/ember-computed-query",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -21,6 +21,9 @@
     "ember-cli-babel": "^6.3.0"
   },
   "devDependencies": {
+    "ember-sinon": "^0.7.0",
+    "eslint-config-google": "~0.8.0",
+
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~2.14.1",

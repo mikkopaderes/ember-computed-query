@@ -1,6 +1,6 @@
 # ember-computed-query
 
-This README outlines the details of collaborating on this Ember addon.
+Computed properties for your models that's equivalent to your store's query methods
 
 ## Installation
 
