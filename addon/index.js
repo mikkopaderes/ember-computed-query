@@ -13,10 +13,11 @@ const {
  *
  * @param {string} modelName
  * @param {Object|Function} [options={}]
+ * @param {...string} keys
  * @return {Promise} Resolves to the query result
  */
-export function query(modelName, options = {}) {
-  return computed({
+export function query(modelName, options = {}, ...keys) {
+  return computed(...keys, {
     get() {
       const query = typeof options === 'function' ? options(this) : options;
       const PromiseArray = ArrayProxy.extend(PromiseProxyMixin);
@@ -33,10 +34,11 @@ export function query(modelName, options = {}) {
  *
  * @param {string} modelName
  * @param {Object|Function} [options={}]
+ * @param {...string} keys
  * @return {Promise} Resolves to the queryRecord result
  */
-export function queryRecord(modelName, options = {}) {
-  return computed({
+export function queryRecord(modelName, options = {}, ...keys) {
+  return computed(...keys, {
     get() {
       const query = typeof options === 'function' ? options(this) : options;
       const PromiseObject = ObjectProxy.extend(PromiseProxyMixin);
