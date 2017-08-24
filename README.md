@@ -27,7 +27,7 @@ export default Model.extend({
     filter: {
       author: 'foobar'
     }
-  }),
+  }, 'username'),
 });
 ```
 
@@ -48,7 +48,7 @@ export default Model.extend({
         author: context.get('username')
       }
     };
-  }),
+  }, 'username'),
 });
 ```
 
@@ -70,7 +70,7 @@ export default Model.extend({
       author: 'foobar',
       last: 1,
     }
-  }),
+  }, 'username'),
 });
 ```
 
@@ -92,7 +92,7 @@ export default Model.extend({
         last: 1,
       }
     };
-  }),
+  }, 'username'),
 });
 ```
 
@@ -100,7 +100,7 @@ export default Model.extend({
 
 - The computed queries are read only.
 - Because they're computed properties, they're lazily loaded.
-- They don't listen for changes to other properties in your models. Once they're called, that's it.
+- In the examples above, changing `username` will invalidate the computed query cache. This means that the computed query will run again on the next access.
 
 ## Contributing
 
