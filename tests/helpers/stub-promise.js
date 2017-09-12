@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { next } from '@ember/runloop';
+import RSVP from 'rsvp';
 
 /**
  * Stub promise
@@ -8,11 +9,11 @@ import Ember from 'ember';
  * @return {Promise} Promise resolving to `dataToReturn`
  */
 export default function stubPromise(willResolve, dataToReturn) {
-  return new Ember.RSVP.Promise((resolve, reject) => {
+  return new RSVP.Promise((resolve, reject) => {
     if (willResolve) {
-      Ember.run(null, resolve, dataToReturn);
+      next(null, resolve, dataToReturn);
     } else {
-      Ember.run(null, reject, dataToReturn);
+      next(null, reject, dataToReturn);
     }
   });
 }
