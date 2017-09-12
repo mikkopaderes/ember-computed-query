@@ -1,6 +1,6 @@
 {
   "name": "ember-computed-query",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Computed properties for your models that's equivalent to your store's query functions",
   "keywords": [
     "ember-addon"
