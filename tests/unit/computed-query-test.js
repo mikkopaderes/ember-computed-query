@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 import wait from 'ember-test-helpers/wait';
 
 import sinon from 'sinon';
@@ -20,13 +20,16 @@ test('should return a computed promise array when calling query with an object a
     id: 'bar',
     value: 'foo',
   }];
+
   const queryStub = sinon.stub().returns(stubPromise(true, queryResult));
-  const EmberObject = Ember.Object.extend({
+
+  const EO = EmberObject.extend({
     store: { query: queryStub },
 
     foo: query('model', { foo: 'bar' }),
   });
-  const object = EmberObject.create();
+
+  const object = EO.create();
 
   // Act
   const promiseArray = object.get('foo');
@@ -51,8 +54,10 @@ test('should return a computed promise array when calling query with a function 
     id: 'bar',
     value: 'foo',
   }];
+
   const queryStub = sinon.stub().returns(stubPromise(true, queryResult));
-  const EmberObject = Ember.Object.extend({
+
+  const EO = EmberObject.extend({
     store: { query: queryStub },
     id: 'foobar_id',
 
@@ -60,7 +65,8 @@ test('should return a computed promise array when calling query with a function 
       return { foo: context.get('id') };
     }),
   });
-  const object = EmberObject.create();
+
+  const object = EO.create();
 
   // Act
   const promiseArray = object.get('foo');
@@ -79,15 +85,18 @@ test('should return a computed promise object when calling query with an object 
 
   // Arrange
   const queryRecordResult = { id: 'foo', value: 'bar' };
+
   const queryRecordStub = sinon.stub().returns(
-    stubPromise(true, queryRecordResult)
+    stubPromise(true, queryRecordResult),
   );
-  const EmberObject = Ember.Object.extend({
+
+  const EO = EmberObject.extend({
     store: { queryRecord: queryRecordStub },
 
     foo: queryRecord('model', { foo: 'bar' }),
   });
-  const object = EmberObject.create();
+
+  const object = EO.create();
 
   // Act
   const promiseObject = object.get('foo');
@@ -106,10 +115,12 @@ test('should return a computed promise object when calling query with an object 
 
   // Arrange
   const queryRecordResult = { id: 'foo', value: 'bar' };
+
   const queryRecordStub = sinon.stub().returns(
-    stubPromise(true, queryRecordResult)
+    stubPromise(true, queryRecordResult),
   );
-  const EmberObject = Ember.Object.extend({
+
+  const EO = EmberObject.extend({
     store: { queryRecord: queryRecordStub },
     id: 'foobar_id',
 
@@ -117,7 +128,8 @@ test('should return a computed promise object when calling query with an object 
       return { foo: context.get('id') };
     }),
   });
-  const object = EmberObject.create();
+
+  const object = EO.create();
 
   // Act
   const promiseObject = object.get('foo');

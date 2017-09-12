@@ -1,12 +1,7 @@
-/** @module ember-computed-query */
-import Ember from 'ember';
-
-const {
-  ArrayProxy,
-  ObjectProxy,
-  PromiseProxyMixin,
-  computed,
-} = Ember;
+import { computed } from '@ember/object';
+import ArrayProxy from '@ember/array/proxy';
+import ObjectProxy from '@ember/object/proxy';
+import PromiseProxyMixin from '@ember/object/promise-proxy-mixin';
 
 /**
  * Returns a promise that will resolve to the store's query method
