@@ -27,7 +27,7 @@ export default Model.extend({
     filter: {
       author: 'foobar'
     }
-  }, 'username'),
+  }, 'username')
 });
 ```
 
@@ -48,7 +48,7 @@ export default Model.extend({
         author: context.get('username')
       }
     };
-  }, 'username'),
+  }, 'username')
 });
 ```
 
@@ -67,10 +67,9 @@ export default Model.extend({
 
   newestComment: queryRecord('comment', {
     filter: {
-      author: 'foobar',
-      last: 1,
+      author: 'foobar'
     }
-  }, 'username'),
+  }, 'username')
 });
 ```
 
@@ -88,17 +87,15 @@ export default Model.extend({
   newestComment: queryRecord('comment', (context) => {
     return {
       filter: {
-        author: context.get('username'),
-        last: 1,
+        author: context.get('username')
       }
     };
-  }, 'username'),
+  }, 'username')
 });
 ```
 
 ### Notes
 
-- The computed queries are read only.
 - Because they're computed properties, they're lazily loaded.
 - In the examples above, changing `username` will invalidate the computed query cache. This means that the computed query will run again on the next access.
 

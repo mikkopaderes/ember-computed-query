@@ -21,7 +21,7 @@ export function query(modelName, options = {}, ...keys) {
         promise: this.get('store').query(modelName, query),
       });
     },
-  }).readOnly();
+  });
 }
 
 /**
@@ -42,5 +42,5 @@ export function queryRecord(modelName, options = {}, ...keys) {
         promise: this.get('store').queryRecord(modelName, query),
       });
     },
-  }).readOnly();
+  });
 }
